@@ -1,0 +1,32 @@
+body{
+    background-color:#f0e6a6;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    margin:0;
+}
+
+.login {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    
+}
+.logo{
+    border-radius: 650px;
+    width: 123px;
+    height: 111px;
+}
+.lrbox{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 135px
+}
+#lrbox{
+    background: #fe9920;
+    height: 435px;
+    width: 410px;
+}

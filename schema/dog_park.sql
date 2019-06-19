@@ -1,4 +1,4 @@
-create table dog_parks {
+create table dog_parks (
     name varchar,
     address varchar,
     city varchar,
@@ -7,4 +7,4 @@ create table dog_parks {
     open_time varchar,
     closing_time varchar,
     img varchar
-}
+)
