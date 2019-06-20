@@ -1,10 +1,9 @@
+@import url('https://fonts.googleapis.com/css?family=Boogaloo&display=swap');
+
 body{
-    background-color:#f0e6a6;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
+    background: url(http://www.carolinaartificiallawns.com/wp-content/uploads/2018/09/shutterstock_439532767.jpg);
     background-size: cover;
-    margin:0;
+    margin: 0;
 }
 
 .login {
@@ -16,7 +15,9 @@ body{
 .logo{
     border-radius: 650px;
     width: 123px;
-    height: 111px;
+    height: 91px;
+    border-style: groove;
+    border-color: #495f41;
 }
 .lrbox{
     display:flex;
@@ -26,7 +27,51 @@ body{
     margin-top: 135px
 }
 #lrbox{
-    background: #fe9920;
     height: 435px;
     width: 410px;
+    border-style: ridge;
+    border-color: #495f41;
+    box-shadow: 2px 2px #495f41;
+    border-radius: 40px;
+}
+.appname{
+    font-family: 'Boogaloo', cursive;
+    color: #495f41;
+    text-shadow: 2px 2px #1e221d;
+}
+p{
+    font-size: 15px;
+    margin-bottom: 3px;
+    margin-top: 5px;
+}
+.username{
+    border-style: groove;
+    width: 287px;
+    height: 20px;
+}
+.password{
+    border-style: groove;
+    width: 287px;
+    height: 20px;
+}
+.buttons{
+    display: flex;
+    margin-top: 30px;
+    margin-left: 103px;
+}
+.loginBut{
+    margin-right: 104px;
+    width: 70px;
+    height: 25px;
+    border-radius: 30px;
+    background: #495f41;
+    color: white;
+}
+.regis{
+    margin-right: 104px;
+    width: 70px;
+    height: 25px;
+    border-radius: 30px;
+    background: #495f41;
+    color: white;
 }

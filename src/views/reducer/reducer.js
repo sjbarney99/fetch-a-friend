@@ -1,32 +1,33 @@
 let initialState = {
     username: '',
-    password: ''
+    profilepic: ''
 }
 
-const DEFINE_USER = 'DEFINE_USER';
+const FIND_USER = 'FIND_USER';
 
-export const userVer = (username, profilePic) => {
-    return {
-        type: DEFINE_USER,
-        payload: {
-            username: '',
-            profilePic: profilePic
+export const userVer = (username, profilepic) =>{
+    return{
+        type: 'FIND_USER',
+        payload:{
+            username: username,
+            profilepic: profilepic
         }
     }
 }
-const reducer = (state = initialState, action) => {
+
+const reducer = (state = initialState, action) =>{
     const {type, payload} = action;
 
-    switch (type) {
-        case DEFINE_USER:
-            return {
+    switch(type) {
+        case FIND_USER:
+            return{
                 ...state,
                 username: payload.username,
-                profilePic: payload.profilePic
+                profilepic: payload.profilepic
             }
-            default:
-                return state
-    }
+        default:
+            return state
+        }
 }
 
 export default reducer
