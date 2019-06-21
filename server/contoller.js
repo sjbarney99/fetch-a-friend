@@ -8,7 +8,7 @@ module.exports = {
 
         dbInstance.register_user([username, password, first_name,last_name,email,profilepic])
             .then(results => {
-                session.id = results[0].userid;
+                session.id = results[0].id;
                 res.status(200).send(results)
             })
     },

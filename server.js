@@ -26,6 +26,8 @@ app.use(session({
     cookie: {maxAge: 60000}
 }))
 
+app.post('/login/register', controller.register)
+
 const port = process.env.PORT || 8080;
 app.listen(port, () => {
     console.log(`Running on port ${port}`)
