@@ -14,30 +14,29 @@ import './login.css';
 
 
 class Login extends Component {
-    constructor(props){
-        super(props);
-
-        this.state={
-            username:'',
-            password:'',
-        }
-        this.updateUser=this.updateUser.bind(this);
-        this.updatePass=this.updatePass.bind(this);
-    }
-
-    updateUser(val){
-        this.setState({
-            username: val
-        })
-    }
-
-    updatePass(val){
-        this.setState({
-            password: val
-        })
-    }
-
+    // this.state={
+    //     username:'',
+    //     password:'',
+    // }
+        
+    // handleChange = e => {
+    //     this.setState({
+    //         [e.target.className]: event.target.value
+    //     })
+    // }
     
+
+    // login() {
+    //     axios.post('/login/login', {withCredentials: true, username: this.state.username, password: this.state.password})
+    //         .then(results => {
+    //             const {user_id, username, profilepic} = results.data.[0];
+    //             this.state({
+    //                 username: '',
+    //                 password: ''
+    //             })
+    //             this.props.history.push('/home')
+    //         })
+    // }
 
     render(){
         return(
@@ -51,11 +50,11 @@ class Login extends Component {
                     </div>
                     <div className='inputs'>
                         <p>Username</p>
-                        <input className='username'></input>
+                        <input className='username' value={this.state.username} onChange={this.handleChange}></input>
                     </div>
                     <div className='inputs'>
                         <p>Password</p>
-                        <input className='password'></input>
+                        <input className='password'value={this.state.password} onChange={this.handleChange}></input>
                     </div>
                     <div className='buttons'>
                         <button className='loginBut'>Login</button>
