@@ -1,33 +1,12 @@
-let initialState = {
-    username: '',
-    profilepic: ''
-}
+import {combineReducers} from 'redux';
 
-const FIND_USER = 'FIND_USER';
-
-export const userVer = (username, profilepic) => {
-    return {
-        type: 'FIND_USER',
-        payload: {
-            username: username,
-            profilepic: profilepic
-        }
+const user = (state = {}, action) => {
+    switch (action.type){
+        case 'user':
+            return action.payload;
+        default:
+            return state;
     }
 }
 
-const reducer = (state = initialState, action) => {
-    const {type, payload} = action;
-
-    switch(type) {
-        case 'FIND_USER':
-            return {
-                ...state,
-                username: payload.username,
-                profilepic: payload.profilepic
-            }
-            default:
-                return state
-    }
-}
-
-export default reducer;
+export default combineReducers({user})

@@ -11,79 +11,51 @@ import './register.css';
 //when submit button is clicked it should direct user to the home screen
 
 class Register extends Component {
-    // constructor(props){
-    //     super(props);
-
-    //     this.state={
-    //         username:'',
-    //         password:'',
-    //         first_name: '',
-    //         last_name: '',
-    //         email: '',
-    //         profilepic: ''
-    //     }
-    //     this.updateUser=this.updateUser.bind(this);
-    //     this.updatePass=this.updatePass.bind(this);
-    //     this.updateFirst=this.updateFirst.bind(this);
-    //     this.updateLast=this.updateLast.bind(this);
-    //     this.updateEmail=this.updateEmail.bind(this);
-    //     this.updatePic=this.updatePic.bind(this);
-    // }
-    // updateUser(val){
-    //     this.setState({
-    //         username: val
-    //     })
-    // }
-
-    // updatePass(val){
-    //     this.setState({
-    //         password: val
-    //     })
-    // }
-
-    // updateFirst(val) {
-    //     this.setState({
-    //         first_name: val
-    //     })
-    // }
-
-    // updateLast(val) {
-    //     this.setState({
-    //         last_name: val
-    //     })
-    // }
-
-    // updateEmail(val) {
-    //     this.setState({
-    //         email: val
-    //     })
-    // }
-
-    // updatePic(val) {
-    //     this.setState({
-    //         profilepic: val
-    //     })
-    // }
-    // register(){
-    //     axios.post('/login/register', {
-    //         username:this.state.updateUser,
-    //         password:this.state.updatePass,
-    //         first_name:this.state.updateFirst,
-    //         last_name:this.state.updateLast,
-    //         email:this.state.updatedEmail,
-    //         profilepic:this.state.updatePic
-    //     })
-    //         .then(results => {
-    //             const {user_id, username, profilepic} = results.data[0];
-    //             this.props.userVer(user_id, username, profilepic);
-    //             this.setState({
-    //                 email: '',
-    //                 password: ''
-    //             })
-    //             this.props.history.push('/home')
-    //         })
-            
-    // }
+        state={
+            username:'',
+            password:'',
+            first_name: '',
+            last_name: '',
+            email: '',
+            profilepic: ''
+        }
+    
+    
+    handleChange = e => {
+        this.setState({
+            [e.target.className]: e.target.value
+        })
+    }
+    
+    register = (e) => {
+        //register obj
+        const regisObj = {
+            email: this.state.email,
+            password: this.state.password,
+            first_name: this.state.first_name,
+            last_name: this.state.last_name,
+            username: this.state.username,
+            profilepic: this.state.profilepic  
+        }
+        //post request to register
+        axios.post('api/register', regisObj)
+            //backend response
+            .then((backendRes) => {
+                //checking successful registration 
+                if(backendRes.data.success) {
+                    //dispatch obj to store
+                    this.props.dispatch({
+                        type: 'user',
+                        payload: backendRes.data.user
+                    })
+                    //push to home 
+                    this.props.history.push('/home');
+                }
+                else{
+                    alert('Please make sure all boxes were filled.')
+                }
+            })
+    }
     
     render(){
         return(
@@ -93,27 +65,27 @@ class Register extends Component {
                 <div className='userinfo'>
                     <div className='firstName'>
                         <p>First Name</p>
-                        <input type='text' /*value={this.state.first_name} onChange={e => this.updateFirst(e.target.value)}*//>
+                        <input type='text' value={this.state.first_name} onChange={this.handleChange}/>
                     </div>
                     <div className='lastName'>
                         <p>Last Name</p>
-                        <input type='text' /*value={this.state.last_name} onChange={e => this.updateLast(e.target.value)}*//>
+                        <input type='text'value={this.state.last_name} onChange={this.handleChange}/>
                     </div>
                     <div className='profilepic'>
                         <p>Profile Picture</p>
-                        <input type='text' /*value={this.state.profilepic} onChange={e => this.updatePic(e.target.value)}*//>
+                        <input type='text'value={this.state.profilepic} onChange={this.handleChange}/>
                     </div>
                     <div className='email'>
                         <p>Email Address</p>
-                        <input type='text' /*value={this.state.email} onChange={e => this.updateEmail(e.target.value)}*//>
+                        <input type='text' value={this.state.email} onChange={this.handleChange}/>
                     </div>
                     <div className='username'>
                         <p>Username</p>
-                        <input type='text' /*value={this.state.username} onChange={e => this.updateUser(e.target.value)}*//>
+                        <input type='text' value={this.state.username} onChange={this.handleChange}/>
                     </div>
                     <div className='password'>
                         <p>Password</p>
-                        <input type='text'/*value={this.state.password} onChange={e => this.updatePass(e.target.value)}*//>
+                        <input type='text'value={this.state.password} onChange={this.handleChange}/>
                     </div>
                 </div>
             </div>
@@ -122,5 +94,5 @@ class Register extends Component {
 }
 
 
-// export default connect(null, actions)(Register);
-export default Register
+
+export default connect(state => state)(Register)

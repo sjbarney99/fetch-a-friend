@@ -1,0 +1,10 @@
+body{
+    margin: 0px;
+    padding: 0px;
+}
+.loader{
+    height: max-content;
+    width: max-content;
+    position: fixed;
+    
+}

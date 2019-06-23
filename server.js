@@ -26,9 +26,9 @@ app.use(session({
     cookie: {maxAge: 60000}
 }))
 
-app.post('/api/test', (req, res, next) => {
-    res.send('this worked!')
-})
+//Routes
+app.post('api/login', controller.login);
+app.post('api/register', controller.register);
 
 const port = process.env.PORT || 8080;
 app.listen(port, () => {
