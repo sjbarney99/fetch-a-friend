@@ -27,14 +27,14 @@ class Login extends Component {
     }
     
 
-    login = (e) => {
+    login = () => {
         //body in backend
         const loginObj ={
             email: this.state.email,
             password: this.state.password
         }
         //post req to login
-        axios.post('api/login', loginObj)
+        axios.post('/api/login', loginObj)
             //response from backend
             .then((backendRes) => {
                 //check for successful login
@@ -56,14 +56,14 @@ class Login extends Component {
     render(){
         let loginCont = <div className='lrbox' id='lrbox'>
                     <div className='logobox'>
-                        <img className='logo' src={Logo}/>
+                        <img className='logo' src={Logo} alt="logo"/>
                     </div>
                     <div className='appname'>
                         <h1 className='faf'>Fetch-a-Friend</h1>
                     </div>
                     <div className='inputs'>
-                        <p>User Email</p>
-                        <input className='useremail' value={this.state.email} onChange={this.handleChange}></input>
+                        <p>Email</p>
+                        <input className='email' value={this.state.email} onChange={this.handleChange}></input>
                     </div>
                     <div className='inputs'>
                         <p>Password</p>

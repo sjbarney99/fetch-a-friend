@@ -1,30 +1,25 @@
 import React, {Component} from 'react';
 import routes from './routes';
-import {BrowserRouter as Router} from 'react-router-dom';
 import axios from 'axios';
-import {Provider} from 'react-redux';
-import store from './Ducks/store';
-
+import {withRouter} from 'react-router-dom';
 
 
 class App extends Component {
   componentDidMount(){
-    axios.get('/api/test')
-      .then((response) => {
-        console.log(response.data)
+    axios.get('/api/usercheck')
+      .then(response => {
+        if(!response.data.success){
+          this.props.history.push('/')
+        }
       })
   }
   render(){
     return(
-      <Provider store={store}>
-        <Router>
           <div className="app">
           {routes}
           </div>
-        </Router>
-      </Provider>
     )
   }
 }
 
-export default App
+export default withRouter(App)

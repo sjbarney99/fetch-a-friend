@@ -1,0 +1,37 @@
+@import url('https://fonts.googleapis.com/css?family=Boogaloo&display=swap');
+.faf{
+    font-family: 'Boogaloo', cursive;
+    color: #495f41;
+    text-shadow: 2px 2px #1e221d;
+}
+.askinfo{
+    font-size: 18px;
+}
+.register{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.regisBox{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 135px;
+    background: white;
+    width: 640px;
+    height: 595px;
+}
+.welcome{
+    margin: 0;
+}
+.userinfo{
+    background: #c5d86d;
+    width: 455px;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    height: 380px;
+    flex-direction: column;
+}

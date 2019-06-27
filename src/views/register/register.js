@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import axios from 'axios';
-import * as actions from '../../Ducks/action_creator';
+//import * as actions from '../../Ducks/action_creator';
 import {connect} from 'react-redux';
 import './register.css';
 //When link on login page is clicked it will direct to this view (register)
@@ -27,7 +27,7 @@ class Register extends Component {
         })
     }
     
-    register = (e) => {
+    register = () => {
         //register obj
         const regisObj = {
             email: this.state.email,
@@ -38,7 +38,7 @@ class Register extends Component {
             profilepic: this.state.profilepic  
         }
         //post request to register
-        axios.post('api/register', regisObj)
+        axios.post('/api/register', regisObj)
             //backend response
             .then((backendRes) => {
                 //checking successful registration 
@@ -60,33 +60,27 @@ class Register extends Component {
     render(){
         return(
             <div className="register">
-                <h1 className='welcome'>Welcome to Fetch-a-Friend</h1>
-                <h2 className='askinfo'>Please fill out the registration form to create an account.</h2>
-                <div className='userinfo'>
-                    <div className='firstName'>
-                        <p>First Name</p>
-                        <input type='text' value={this.state.first_name} onChange={this.handleChange}/>
-                    </div>
-                    <div className='lastName'>
-                        <p>Last Name</p>
-                        <input type='text'value={this.state.last_name} onChange={this.handleChange}/>
-                    </div>
-                    <div className='profilepic'>
-                        <p>Profile Picture</p>
-                        <input type='text'value={this.state.profilepic} onChange={this.handleChange}/>
-                    </div>
-                    <div className='email'>
-                        <p>Email Address</p>
-                        <input type='text' value={this.state.email} onChange={this.handleChange}/>
-                    </div>
-                    <div className='username'>
-                        <p>Username</p>
-                        <input type='text' value={this.state.username} onChange={this.handleChange}/>
-                    </div>
-                    <div className='password'>
-                        <p>Password</p>
-                        <input type='text'value={this.state.password} onChange={this.handleChange}/>
-                    </div>
+                <div className='regisBox'>
+                    <h1 className='welcome'>Welcome to</h1>
+                    <h1 className='faf'>Fetch-a-Friend</h1>
+                    <h2 className='askinfo'>Please fill out the registration form to create an account.</h2>
+                    <form className='userinfo'>
+                            <p>First Name</p>
+                            <input className='first_name' type='text' value={this.state.first_name} onChange={this.handleChange}/>
+                            <p>Last Name</p>
+                            <input className='last_name' type='text'value={this.state.last_name} onChange={this.handleChange}/>
+                            <p>Profile Picture</p>
+                            <input className='profilepic' type='text'value={this.state.profilepic} onChange={this.handleChange}/>
+                            <p>Email Address</p>
+                            <input className='email' type='text' value={this.state.email} onChange={this.handleChange}/>
+                            <p>Username</p>
+                            <input className='username' type='text' value={this.state.username} onChange={this.handleChange}/>
+                            <p>Password</p>
+                            <input className='password' type='text'value={this.state.password} onChange={this.handleChange}/>
+                        <div className="regisButBox">
+                            <button className='regisbut' onClick={this.register}>Submit</button>
+                        </div>
+                    </form>
                 </div>
             </div>
         )

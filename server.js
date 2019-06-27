@@ -8,6 +8,16 @@ require('dotenv').config();
 
 const app = express();
 
+app.use(session({
+    secret: process.env.SECRET_SESSION,
+    resave: true,
+    saveUninitialized: true,
+    cookie: {maxAge: 60000}
+}))
+
+app.use(cors())
+app.use(bodyParser.json())
+
 massive(process.env.CONNECTION_STRING)
     .then((dbInstance) => {
         app.set('db', dbInstance);
@@ -17,20 +27,16 @@ massive(process.env.CONNECTION_STRING)
         console.log('db is not connected')
     })
 
-app.use(cors())
-app.use(bodyParser.json())
-app.use(session({
-    secret: process.env.SESSION_SECRET,
-    resave: true,
-    saveUninitialized: true,
-    cookie: {maxAge: 60000}
-}))
+//Endpoints
+app.post('/api/login', controller.login);
+app.post('/api/register', controller.register);
+app.get('/api/usercheck',controller.usercheck);
 
-//Routes
-app.post('api/login', controller.login);
-app.post('api/register', controller.register);
+app.get('/ping', (req, res) => {
+    res.send('ping');
+})
 
-const port = process.env.PORT || 8080;
+const port = process.env.SERVER_PORT || 8080;
 app.listen(port, () => {
     console.log(`Running on port ${port}`)
 })

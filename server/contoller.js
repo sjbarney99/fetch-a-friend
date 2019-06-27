@@ -19,7 +19,7 @@ module.exports = {
                     return bcrypt.compare(password, user.password)
                 }
                 else{
-                    throw(`Username ${username} does not exist, please register for an account.`)
+                    throw(`Username ${email} does not exist, please register for an account.`)
                 }
             })
             //chained promise
@@ -75,5 +75,14 @@ module.exports = {
             .catch((err) => {
                 res.send(err)
             })
+    },
+    usercheck: (req, res, next)=>{
+        console.log(req.session)
+        if(req.session.user){
+          res.send({success:true})
+        }
+        else{
+          res.send({success:false})
+        }
     }
 }
