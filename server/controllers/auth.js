@@ -1,4 +1,5 @@
 const bcrypt = require('bcrypt');
+const saltRounds = 10;
 
 module.exports = {
     //login endpoint
@@ -19,7 +20,7 @@ module.exports = {
                     return bcrypt.compare(password, user.password)
                 }
                 else{
-                    throw(`Username ${email} does not exist, please register for an account.`)
+                    throw(`Email ${email} does not exist, please register for an account.`)
                 }
             })
             //chained promise
@@ -28,7 +29,7 @@ module.exports = {
                     //ALWAYS DELETE PASSWORD! 
                     delete currentUser.password
                     //send response
-                    res.send({succes:true, user: currentUser})
+                    res.send({success:true, user: currentUser})
                 }
                 else{
                     throw(`Hmmm... It looks like your credentials don't match. Please try agian.`)
@@ -77,7 +78,6 @@ module.exports = {
             })
     },
     usercheck: (req, res, next)=>{
-        console.log(req.session)
         if(req.session.user){
           res.send({success:true})
         }

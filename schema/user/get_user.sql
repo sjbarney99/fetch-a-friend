@@ -1,0 +1,3 @@
+select distinct *
+from user_table
+where id = $1;

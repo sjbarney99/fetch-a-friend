@@ -8,5 +8,13 @@ const user = (state = {}, action) => {
             return state;
     }
 }
+const park = (state = [], action) => {
+    switch (action.type) {
+        case 'parksObj':
+            return action.payload;
+        default:
+            return state;
+    }
+}
 
-export default combineReducers({user})
+export default combineReducers({user, park})

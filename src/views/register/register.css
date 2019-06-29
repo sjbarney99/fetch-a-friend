@@ -12,6 +12,11 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    background: url(http://www.carolinaartificiallawns.com/wp-content/uploads/2018/09/shutterstock_439532767.jpg);
+    background-size: cover;
+    margin: 0;
+    background-repeat: no-repeat;
+    
 }
 .regisBox{
     display: flex;
@@ -29,9 +34,26 @@
 .userinfo{
     background: #c5d86d;
     width: 455px;
-    justify-content: center;
-    display: flex;
-    align-items: center;
     height: 380px;
-    flex-direction: column;
+}
+input:hover{
+    background: #9dd9d2
+}
+.name1{
+    margin-inline-start: 42px;
+    margin-inline-end: 20px;
+    text-align: center;
+    display: inline-block;  
+}
+.name2{
+    text-align: center;
+    display: inline-block; 
+}
+.pic{
+    display: inline-block;
+    text-align: center;
+    margin-top: 20px;
+}
+.profilepic{
+    width: 228px;
 }

@@ -65,14 +65,22 @@ class Register extends Component {
                     <h1 className='faf'>Fetch-a-Friend</h1>
                     <h2 className='askinfo'>Please fill out the registration form to create an account.</h2>
                     <form className='userinfo'>
+                        <div className='name1'>
                             <p>First Name</p>
                             <input className='first_name' type='text' value={this.state.first_name} onChange={this.handleChange}/>
+                        </div>
+                        <div className='name2'>
                             <p>Last Name</p>
                             <input className='last_name' type='text'value={this.state.last_name} onChange={this.handleChange}/>
+                        </div>
+                        <div className='pic'>
                             <p>Profile Picture</p>
                             <input className='profilepic' type='text'value={this.state.profilepic} onChange={this.handleChange}/>
+                        </div>
+                        <div className='emailbox'>
                             <p>Email Address</p>
                             <input className='email' type='text' value={this.state.email} onChange={this.handleChange}/>
+                        </div>    
                             <p>Username</p>
                             <input className='username' type='text' value={this.state.username} onChange={this.handleChange}/>
                             <p>Password</p>

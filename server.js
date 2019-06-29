@@ -3,7 +3,8 @@ const cors = require('cors');
 const bodyParser = require('body-parser');
 const massive = require('massive');
 const session = require('express-session');
-const controller = require('./server/contoller');
+const auth = require('./server/controllers/auth');
+const dogParks = require('./server/controllers/dogParks');
 require('dotenv').config();
 
 const app = express();
@@ -27,14 +28,16 @@ massive(process.env.CONNECTION_STRING)
         console.log('db is not connected')
     })
 
-//Endpoints
-app.post('/api/login', controller.login);
-app.post('/api/register', controller.register);
-app.get('/api/usercheck',controller.usercheck);
+//Auth Endpoints
+app.post('/api/login', auth.login);
+app.post('/api/register', auth.register);
+app.get('/api/usercheck',auth.usercheck);
 
-app.get('/ping', (req, res) => {
-    res.send('ping');
-})
+//Park Endpoints
+app.post('/api/parks', dogParks.parks);
+app.get('/api/getter', dogParks.getAll);
+app.put('/api/parks/:id', dogParks.updatePrk);
+app.delete('/api/deletePrk/:id');
 
 const port = process.env.SERVER_PORT || 8080;
 app.listen(port, () => {

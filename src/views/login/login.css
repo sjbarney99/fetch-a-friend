@@ -1,16 +1,13 @@
 @import url('https://fonts.googleapis.com/css?family=Boogaloo&display=swap');
 
-body{
-    background: url(http://www.carolinaartificiallawns.com/wp-content/uploads/2018/09/shutterstock_439532767.jpg);
-    background-size: cover;
-    margin: 0;
-    background-repeat: no-repeat;
-}
-
 .login {
     display: flex;
     justify-content: center;
     align-content: center;
+    background: url(http://www.carolinaartificiallawns.com/wp-content/uploads/2018/09/shutterstock_439532767.jpg);
+    background-size: cover;
+    margin: 0;
+    background-repeat: no-repeat;
     
 }
 .logo{
