@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
 import axios from 'axios';
-//import * as actions from '../../Ducks/action_creator';
 import {connect} from 'react-redux';
 import './register.css';
+
 //When link on login page is clicked it will direct to this view (register)
 //a user needs to fill out information in order to create an account
 //state should include username, password, first_name, last_name, email, and profilepic
@@ -79,12 +79,14 @@ class Register extends Component {
                         </div>
                         <div className='emailbox'>
                             <p>Email Address</p>
-                            <input className='email' type='text' value={this.state.email} onChange={this.handleChange}/>
-                        </div>    
+                            <input className='email' id='emailregis' type='text' value={this.state.email} onChange={this.handleChange}/>
+                        </div>
+                        <div className='confbox'>   
                             <p>Username</p>
                             <input className='username' type='text' value={this.state.username} onChange={this.handleChange}/>
                             <p>Password</p>
-                            <input className='password' type='text'value={this.state.password} onChange={this.handleChange}/>
+                            <input className='password' id='passwordreg' type='text'value={this.state.password} onChange={this.handleChange}/>
+                        </div>
                         <div className="regisButBox">
                             <button className='regisbut' onClick={this.register}>Submit</button>
                         </div>

@@ -42,12 +42,12 @@ p{
     margin-bottom: 3px;
     margin-top: 5px;
 }
-.email{
+#lgemail{
     border-style: groove;
     width: 287px;
     height: 20px;
 }
-.password{
+#lgpass{
     border-style: groove;
     width: 287px;
     height: 20px;

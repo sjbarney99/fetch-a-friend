@@ -1,0 +1,52 @@
+.home{
+    background: #32746d;
+    background-size: cover;
+}
+.parkadd{
+    background: #f0e6a6;
+    width: 550px;
+}
+.intro{
+    text-align: center;
+}
+.prkname{
+    flex-direction: column;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.prkaddress{
+    display: inline-block;
+}
+.park_address{
+    margin-right: 20px;
+}
+.prkcity{
+    display: inline-block;
+}
+.city{
+    width: 70px;
+    margin-right: 20px;
+}
+.prkst{
+    display: inline-block;
+}
+.park_state{
+    width: 80px;
+    margin-right: 20px;
+}
+.prkzip{
+    display: inline-block;
+}
+.zipcode{
+    width: 50px;
+}
+.prkdesc{
+    margin-top: 15px;
+}
+.descriptions{
+    width: 99%;
+    height: 116px;
+    margin-top: 0px;
+}

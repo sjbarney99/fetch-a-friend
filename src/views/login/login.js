@@ -63,11 +63,11 @@ class Login extends Component {
                     </div>
                     <div className='inputs'>
                         <p>Email</p>
-                        <input className='email' value={this.state.email} onChange={this.handleChange}></input>
+                        <input className='email' id='lgemail' value={this.state.email} onChange={this.handleChange}></input>
                     </div>
                     <div className='inputs'>
                         <p>Password</p>
-                        <input className='password'value={this.state.password} onChange={this.handleChange}></input>
+                        <input className='password' id='lgpass' value={this.state.password} onChange={this.handleChange}></input>
                     </div>
                     <div className='buttons'>
                         <button className='loginBut' onClick={this.login}>Login</button>

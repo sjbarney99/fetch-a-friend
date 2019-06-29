@@ -5,6 +5,7 @@ const massive = require('massive');
 const session = require('express-session');
 const auth = require('./server/controllers/auth');
 const dogParks = require('./server/controllers/dogParks');
+const path = require('path');
 require('dotenv').config();
 
 const app = express();
@@ -19,7 +20,7 @@ app.use(session({
 app.use(cors())
 app.use(bodyParser.json())
 
-massive(process.env.CONNECTION_STRING)
+massive(process.env.DATABASE_URL)
     .then((dbInstance) => {
         app.set('db', dbInstance);
         console.log(`db is connected`)
@@ -27,6 +28,9 @@ massive(process.env.CONNECTION_STRING)
     .catch((err) => {
         console.log('db is not connected')
     })
+
+app.use(express.static(path.join(__dirname, '/build')));
+
 
 //Auth Endpoints
 app.post('/api/login', auth.login);
@@ -38,6 +42,12 @@ app.post('/api/parks', dogParks.parks);
 app.get('/api/getter', dogParks.getAll);
 app.put('/api/parks/:id', dogParks.updatePrk);
 app.delete('/api/deletePrk/:id');
+
+app.get('/*', (req, res) => {
+    res.sendFile('index.html', {
+        root: path.join(__dirname, "build")
+      })
+});
 
 const port = process.env.SERVER_PORT || 8080;
 app.listen(port, () => {

@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import axios from 'axios';
 import {connect} from 'react-redux';
 import DoggPark from './parks/DoggPark';
+import './home.css';
   
 class Home extends Component {
     state={
@@ -79,21 +80,33 @@ class Home extends Component {
         return(
             <div className="home">
                 <div className='parkadd'>
-                    <h1>Add a Park</h1>
-                    <p>Park Name</p>
-                    <input className='park_name' value={this.state.park_name} onChange={this.handleChange}/>
-                    <p>Address</p>
-                    <input className='park_address' value={this.state.park_address} onChange={this.handleChange}/>
-                    <p>City</p>
-                    <input className='city' value={this.state.city} onChange={this.handleChange}/>
-                    <p>State</p>
-                    <input className='park_state' value={this.state.park_state} onChange={this.handleChange}/>
-                    <p>Zipcode</p>
-                    <input className='zipcode' value={this.state.zipcode} onChange={this.handleChange}/>
-                    <p>Description</p>
-                    <input className='descriptions' value={this.state.descriptions} onChange={this.handleChange}/>
+                    <h1 className='intro'>Add a Park</h1>
+                    <div className='prkname'>
+                        <p>Park Name</p>
+                        <input className='park_name' value={this.state.park_name} onChange={this.handleChange}/>
+                    </div>
+                    <div className='prkaddress'>
+                        <p>Address</p>
+                        <input className='park_address' value={this.state.park_address} onChange={this.handleChange}/>
+                    </div>
+                    <div className='prkcity'>
+                        <p>City</p>
+                        <input className='city' value={this.state.city} onChange={this.handleChange}/>
+                    </div>
+                    <div className='prkst'>
+                        <p>State</p>
+                        <input className='park_state' value={this.state.park_state} onChange={this.handleChange}/>
+                    </div>
+                    <div className='prkzip'>
+                        <p>Zipcode</p>
+                        <input className='zipcode' value={this.state.zipcode} onChange={this.handleChange}/>
+                    </div>
+                    <div className='prkdesc'>
+                        <p>Description</p>
+                        <input className='descriptions' value={this.state.descriptions} onChange={this.handleChange}/>
+                    </div>
                     <div className='buttonbox'>
-                        <button className='submit' onClick={this.parks}>Add</button>
+                        <button className='submit' onClick={this.parks}><i class='fas fa-paw'></i>Add</button>
                     </div>
                 </div>
                 <div className='parklist'>

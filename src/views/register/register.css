@@ -25,8 +25,9 @@
     align-items: center;
     margin-top: 135px;
     background: white;
-    width: 640px;
-    height: 595px;
+    width: 610px;
+    height: 523px;
+    border-radius: 20px;
 }
 .welcome{
     margin: 0;
@@ -34,14 +35,16 @@
 .userinfo{
     background: #c5d86d;
     width: 455px;
-    height: 380px;
+    border-radius: 10px;
+    height: 294px;
 }
 input:hover{
-    background: #9dd9d2
+    background: #9dd9d2;
+    border-style: groove;
 }
 .name1{
-    margin-inline-start: 42px;
-    margin-inline-end: 20px;
+    margin-inline-start: 41px;
+    margin-inline-end: 24px;
     text-align: center;
     display: inline-block;  
 }
@@ -54,6 +57,33 @@ input:hover{
     text-align: center;
     margin-top: 20px;
 }
+.emailbox{
+    display: inline-block;
+    text-align: center;
+}
+#emailregis{
+    width: 210px;
+    margin-left: 27px;
+}
 .profilepic{
-    width: 228px;
+    width: 210px;
+}
+.confbox{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 20px;
+}
+.regisButBox{
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+.regisbut{
+    width: 70px;
+    height: 25px;
+    border-radius: 30px;
+    background: #495f41;
+    color: white;
 }
